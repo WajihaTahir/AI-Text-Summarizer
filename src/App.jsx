@@ -65,7 +65,7 @@ function App() {
           disabled={!aiReady || loading || !text.trim()}
         >
           {loading ? (
-            <div>
+            <div className="flex items-center gap-2">
               <div className="animate-spin w-4 h-4 border-2 border-white/30 border-t-white rounded-full "></div>
               Summarizing...
             </div>
@@ -75,11 +75,14 @@ function App() {
         </button>
 
         <div className="mt-6 space-y-4 text-white ">
-          {
-            summary && (
-              <div className="p-4 "> </div>
-            )
-          }
+          {summary && (
+            <div className="p-4 bg-gray-700/60 border border-gray-500 rounded-xl whitespace-pre-wrap">
+              {summary}{" "}
+            </div>
+          )}
+          {error && (
+            <div className="p-4 bg-red-100 text-red-700 border border-red-300 rounded-xl"></div>
+          )}
         </div>
       </div>
     </div>
